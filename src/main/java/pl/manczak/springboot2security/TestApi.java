@@ -16,10 +16,13 @@ public class TestApi {
     }
     @GetMapping ("/forUser")
     public String forUser(Principal principal) {
+
         return "Hello user:"+ principal.getName();
     }
+
     @GetMapping ("/forAdmin")
     public String forAdmin(Principal principal) {
+
         return "Hello admin:" + principal.getName();
     }
 }
