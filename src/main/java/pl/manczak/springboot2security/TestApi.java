@@ -25,4 +25,8 @@ public class TestApi {
 
         return "Hello admin:" + principal.getName();
     }
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
 }
