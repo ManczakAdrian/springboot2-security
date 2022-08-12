@@ -47,15 +47,16 @@ public class UserService {
 
       try {
           mailSenderService.sendMail(user.getUsername(),
-                  "Verification Token",
-                  url,
-                  false
-          );
+                  "Verification Token", url, false);
 
       }catch (MessagingException e){
           e.printStackTrace();
       }
+    }
 
-
+    public void verifyToken(String token) {
+       AppUser appUser= verificationTokenRepo.findByValue(token).getAppUser();
+        appUser.setEnabled(true);
+        appUserRepo.save(appUser);
     }
 }
