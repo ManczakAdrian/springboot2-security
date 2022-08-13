@@ -17,11 +17,12 @@ public class Start {
     public Start(PasswordEncoder passwordEncoder, AppUserRepo appUserRepo) {
         this.passwordEncoder = passwordEncoder;
         this.appUserRepo = appUserRepo;
-//
-//        AppUser appUser= new AppUser();
-//        appUser.setUsername("Przemek");
-//        appUser.setPassword(passwordEncoder.encode("Przemek123"));
-//        appUserRepo.save(appUser);
+
+        AppUser appUser= new AppUser();
+        appUser.setUsername("Przemek");
+        appUser.setEnabled(true);
+        appUser.setPassword(passwordEncoder.encode("Przemek123"));
+        appUserRepo.save(appUser);
 
     }
 }
