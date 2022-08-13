@@ -28,7 +28,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -58,7 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/forUser").permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/forAll");
+                .logout().logoutSuccessUrl("/forAll")
+                .and()
+                .rememberMe().tokenValiditySeconds(86400).rememberMeCookieName("rehresh").rememberMeParameter("remember");
+           //     .key("przemek").useSecureCookie(true);// musi być zainstalowany SSL na stronie żeby to działało
+
 
     }
 }
